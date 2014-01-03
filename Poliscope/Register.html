@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+{% block body %}
+	<h1>Register with Poliscope!</h1>
+	{% if not session.logged_in %}
+		<form action="{{ url_for('add_user') }}" method=post onsubmit="return validateForm()" class=register>
+		  <dl>
+			<dt>First Name:
+			<dd><input type=text size=30 name=fname>
+			<dt>Last Name:
+			<dd><input type=text size=30 name=lname>
+			<dt>Email Address:
+			<dd><input type=text size=30 name=email>
+			<dt>Password:
+			<dd><input type=text size=30 name=password>
+			<dd><input type=submit value=Share>
+		  </dl>
+		</form>
+	{% else %}
+		<h2><em>Your already logged in, there's no need to register</em>
+	{% endif %}
+{% endblock %}
